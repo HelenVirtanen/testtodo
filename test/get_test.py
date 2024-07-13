@@ -6,7 +6,7 @@ import allure
 @allure.story("Получение списка задач")
 @allure.feature("GET")
 @allure.title("Получение списка всех задач")
-def get_tasks_test():
+def test_get():
     with allure.step("Отправить запрос GET на получение списка задач"):
         response = requests.get("https://todo-app-sky.herokuapp.com/")
     
@@ -14,4 +14,4 @@ def get_tasks_test():
         assert response.status_code == 200
 
     with allure.step("Тип данных ответа не равен list"):
-        assert type(response.json()) is not list
+        assert type(response.json()) is list

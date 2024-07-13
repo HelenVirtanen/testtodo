@@ -6,7 +6,7 @@ import allure
 @allure.story("Изменение задачи")
 @allure.feature("UPDATE")
 @allure.title("Изменение названия задачи")
-def edit_task_test():
+def test_edit():
     with allure.step("Создать задачу с названием и статусом Не выполнено"):
         body = {"title":"generated","completed":False}
         response = requests.post("https://todo-app-sky.herokuapp.com/", json=body)
