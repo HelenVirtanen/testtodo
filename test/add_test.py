@@ -9,11 +9,12 @@ import allure
 def test_add():
     with allure.step("Создать задачу с названием и статусом Не выполнено"):
         body = {"title":"новая задача","completed":False}
-        response = requests.post("https://todo-app-sky.herokuapp.com/", json=body)
-        response_body = response.json()
+        with allure.step("Вызвать api-метод для создания задачи"):
+            response = requests.post("https://todo-app-sky.herokuapp.com/", json=body)
+            response_body = response.json()
     
-    with allure.step("Проверить статус код создания задачи"):
+    with allure.step("Проверить, что статус-код создания задачи равен 200"):
         assert response.status_code == 200
 
-    with allure.step("Проверть что статус выполнения равен None"):
+    with allure.step("Проверить, что статус выполнения задачи равен None"):
         assert response_body['completed'] == None
