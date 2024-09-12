@@ -17,4 +17,4 @@ def test_add():
         assert response.status_code == 200
 
     with allure.step("Проверить, что статус выполнения равен None"):
-        assert response_body['completed'] == True
+        assert response_body['completed'] == None
