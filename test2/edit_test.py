@@ -25,4 +25,5 @@ def test_edit():
     
     with allure.step("Название задачи изменено"):
         assert response.json()['title']=="generated-1"
+        assert response.status_code == 200
       
